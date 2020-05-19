@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class ContactUsPage extends Base {
-	private By selectSubject = By.id("id_contact");
-	private By txtEmail = By.id("email");
-	private By txtOrder = By.id("id_order");
+	public By selectSubject = By.id("id_contact");
+	public By txtEmail = By.id("email");
+	public By txtOrder = By.id("id_order");
 
-	private By inputFileSelect = By.xpath("//*[@id=\"fileUpload\"]");
-	private By btnSent = By.id("submitMessage");
-	private By txtMess = By.id("message");
-	private By mess = By.xpath("//p[contains(text(),\"message has been successfully\")]");
+	public By inputFileSelect = By.xpath("//*[@id=\"fileUpload\"]");
+	public By btnSent = By.id("submitMessage");
+	public By txtMess = By.id("message");
+	public By mess = By.xpath("//p[contains(text(),\"message has been successfully\")]");
 
 	public ContactUsPage(WebDriver driver) {
 		this.driver = driver;

@@ -6,14 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class GmailPage extends Base {
-//	private By txtEmailLogin = By.id("identifierId"); //*[@id="identifierId"]
-	private By txtEmailLogin = By.xpath("//*[@id=\"identifierId\"]"); 
-	private By btnEmailLogin = By.id("identifierNext");//*[@id="identifierNext"]
+//	public By txtEmailLogin = By.id("identifierId"); //*[@id="identifierId"]
+	public By txtEmailLogin = By.xpath("//*[@id=\"identifierId\"]"); 
+	public By btnEmailLogin = By.id("identifierNext");//*[@id="identifierNext"]
 	
-	private By txtPassLogin = By.xpath("//*[@id=\"password\"]//input"); //input[@type="password"]
-	private By btnPassLogin = By.id("passwordNext"); //*[@id="passwordNext"]/span/span
+	public By txtPassLogin = By.xpath("//*[@id=\"password\"]//input"); //input[@type="password"]
+	public By btnPassLogin = By.id("passwordNext"); //*[@id="passwordNext"]/span/span
 	
-	private By trSelenium = By.xpath("//*[@id=\":2p\"]/tbody/tr[contains(text(),\"selenium\")]");
+	public By trSelenium = By.xpath("//*[@id=\":2p\"]/tbody/tr[contains(text(),\"selenium\")]");
 	
 	public GmailPage(WebDriver driver) {
 		this.driver = driver;

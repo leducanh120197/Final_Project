@@ -7,16 +7,16 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginAndSinup extends Base {
 	
-	private By txtEmailCreate = By.xpath("//*[@id=\"email_create\"]");
-	private By btnCreateAccount  = By.id("SubmitCreate");
-	private By errorRegistered = By.xpath("//*[@id=\"create_account_error\"]//li[contains(text(),\"registered\")];");
-	private By errorInvalid = By.xpath("//*[@id=\"create_account_error\"]//li[contains(text(),\"Invalid\")]");
-	private By txtEmail = By.id("email");
-	private By txtPassWord = By.id("passwd");
-	private By btnSignIn = By.id("SubmitLogin");
+	public By txtEmailCreate = By.xpath("//*[@id=\"email_create\"]");
+	public By btnCreateAccount  = By.id("SubmitCreate");
+	public By errorRegistered = By.xpath("//*[@id=\"create_account_error\"]//li[contains(text(),\"registered\")];");
+	public By errorInvalid = By.xpath("//*[@id=\"create_account_error\"]//li[contains(text(),\"Invalid\")]");
+	public By txtEmail = By.id("email");
+	public By txtPassWord = By.id("passwd");
+	public By btnSignIn = By.id("SubmitLogin");
 	
-//	private By txtPassWord = By.xpath("//*[@id=\"passwd\"]");
-//	private By btnSignIn = By.xpath("//*[@id=\"SubmitLogin\"]/span");
+//	public By txtPassWord = By.xpath("//*[@id=\"passwd\"]");
+//	public By btnSignIn = By.xpath("//*[@id=\"SubmitLogin\"]/span");
 	
 	
 	public LoginAndSinup(WebDriver driver) {

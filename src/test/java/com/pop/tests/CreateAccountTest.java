@@ -14,44 +14,41 @@ import com.pop.pages.MyAccount;
 
 public class CreateAccountTest {
 	WebDriver driver;
-	
+
 	// testcase 1
-	@Test (enabled = false)
+	@Test
 	public void createAccountInvalid() {
 		LoginAndSinup loginAndSignup = new HomePage(driver).clickSignin();
 //		LoginAndSinup loginAndSignup = home.clickSignin();
 		loginAndSignup = loginAndSignup.clickCreateAccountInvalid("abc123");
 		if (loginAndSignup.errorInvalid()) {
 			System.out.println("Invalid");
-		}
-		else {
+		} else {
 			System.out.println("Not Invalid");
 		}
-		
+
 	}
-	
+
 	// testcase 2
-	@Test (enabled = true)
+	@Test
 	public void createAccount() {
 		LoginAndSinup loginAndSignup = new HomePage(driver).clickSignin();
 //		LoginAndSinup loginAndSignup = home.clickSignin();
 		CreateAccount createAcc = loginAndSignup.clickCreateAccount("anhld@gmail.com");
 		createAcc.insertInformation();
-		
+
 		MyAccount myAcc = createAcc.clickRegister();
-		if(myAcc.inMyAccountPage()) {
+		if (myAcc.isMyAccountPage()) {
 			System.out.println("Registed");
-		}
-		else {
+		} else {
 			System.out.println("Can not register");
 		}
 
 	}
-	
-	
+
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver", ".//Setup//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://automationpractice.com/index.php");
 

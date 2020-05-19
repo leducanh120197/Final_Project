@@ -20,7 +20,7 @@ public class NewLetterTest {
 	@Test(enabled = true)
 	public void submitNewLetter() {
 		HomePage home = new HomePage(driver).submitLetter("anhld.lqa-1@gmail.com");
-		if(home.Subscribed()) {
+		if(home.subscribed()) {
 			System.out.println("Subscribed");
 		}		
 		else {
@@ -51,7 +51,7 @@ public class NewLetterTest {
 	
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver", ".//Setup//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://automationpractice.com/index.php");
 

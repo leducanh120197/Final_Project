@@ -30,7 +30,7 @@ public class ContactUsTest {
 	@BeforeMethod
 	public void beforeMethod() {
 		
-		System.setProperty("webdriver.chrome.driver", ".//Setup//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://automationpractice.com/index.php");
 
