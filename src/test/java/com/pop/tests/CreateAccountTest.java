@@ -1,24 +1,17 @@
 package com.pop.tests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ISelect;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.pop.pages.HomePage;
-import com.pop.pages.LoginAndSinup;
-import com.pop.pages.CreateAccount;
-import com.pop.pages.MyAccount;
+import com.pop.pages.HomePageModel;
+import com.pop.pages.LoginAndSinupPageModel;
+import com.pop.pages.CreateAccountPageModel;
+import com.pop.pages.MyAccountPageModel;
 
-public class CreateAccountTest {
-	WebDriver driver;
-
+public class CreateAccountTest extends BaseTest{
 	// testcase 1
 	@Test
 	public void createAccountInvalid() {
-		LoginAndSinup loginAndSignup = new HomePage(driver).clickSignin();
+		LoginAndSinupPageModel loginAndSignup = new HomePageModel(webDriver).clickSignin();
 //		LoginAndSinup loginAndSignup = home.clickSignin();
 		loginAndSignup = loginAndSignup.clickCreateAccountInvalid("abc123");
 		if (loginAndSignup.errorInvalid()) {
@@ -32,12 +25,12 @@ public class CreateAccountTest {
 	// testcase 2
 	@Test
 	public void createAccount() {
-		LoginAndSinup loginAndSignup = new HomePage(driver).clickSignin();
+		LoginAndSinupPageModel loginAndSignup = new HomePageModel(webDriver).clickSignin();
 //		LoginAndSinup loginAndSignup = home.clickSignin();
-		CreateAccount createAcc = loginAndSignup.clickCreateAccount("anhld@gmail.com");
+		CreateAccountPageModel createAcc = loginAndSignup.clickCreateAccount("anhld@gmail.com");
 		createAcc.insertInformation();
 
-		MyAccount myAcc = createAcc.clickRegister();
+		MyAccountPageModel myAcc = createAcc.clickRegister();
 		if (myAcc.isMyAccountPage()) {
 			System.out.println("Registed");
 		} else {
@@ -46,15 +39,15 @@ public class CreateAccountTest {
 
 	}
 
-	@BeforeMethod
-	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("http://automationpractice.com/index.php");
-
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	}
+//	@BeforeMethod
+//	public void beforeMethod() {
+//		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
+//		webDriver = new ChromeDriver();
+//		webDriver.get("http://automationpractice.com/index.php");
+//
+//	}
+//
+//	@AfterMethod
+//	public void afterMethod() {
+//	}
 }

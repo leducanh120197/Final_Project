@@ -10,16 +10,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.pop.pages.HomePage;
-import com.pop.pages.GmailPage;
+import com.pop.pages.HomePageModel;
+import com.pop.pages.GmailPageModel;
 
-public class NewLetterTest {
-	WebDriver driver;
+public class NewLetterTest extends BaseTest{
 	
 	// testcase 3
 	@Test(enabled = true)
 	public void submitNewLetter() {
-		HomePage home = new HomePage(driver).submitLetter("anhld.lqa-1@gmail.com");
+		HomePageModel home = new HomePageModel(webDriver).submitLetter("anhld.lqa-1@gmail.com");
 		if(home.subscribed()) {
 			System.out.println("Subscribed");
 		}		
@@ -28,16 +27,15 @@ public class NewLetterTest {
 		}
 		
 		//Check mail
-		
-		String handleHome = driver.getWindowHandle();
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/mail/u/3/#inbox','_blank');");
-		GmailPage gmailPage = new GmailPage(driver);
+		String handleHome = webDriver.getWindowHandle();
+		((JavascriptExecutor) webDriver).executeScript("window.open('https://mail.google.com/mail/u/3/#inbox','_blank');");
+		GmailPageModel gmailPage = new GmailPageModel(webDriver);
 //		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("xxx");
 		
-		Set<String> handles = driver.getWindowHandles();
+		Set<String> handles = webDriver.getWindowHandles();
 		for (String handle : handles) {
 			if (!handle.equals(handleHome)) {
-				driver.switchTo().window(handle);
+				webDriver.switchTo().window(handle);
 			}
 		}
 		gmailPage = gmailPage.loginGmail();
@@ -48,16 +46,16 @@ public class NewLetterTest {
 			System.out.println("Not Received");
 		}
 	}
-	
-	@BeforeMethod
-	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("http://automationpractice.com/index.php");
-
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	}
+//	
+//	@BeforeMethod
+//	public void beforeMethod() {
+//		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
+//		webDriver = new ChromeDriver();
+//		webDriver.get("http://automationpractice.com/index.php");
+//
+//	}
+//
+//	@AfterMethod
+//	public void afterMethod() {
+//	}
 }

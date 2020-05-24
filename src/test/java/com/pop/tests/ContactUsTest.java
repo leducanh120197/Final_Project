@@ -8,35 +8,35 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.pop.pages.ContactUsPage;
-import com.pop.pages.HomePage;
+import com.pop.pages.ContactUsPageModel;
+import com.pop.pages.HomePageModel;
 
-public class ContactUsTest {
-	WebDriver driver;
+public class ContactUsTest extends BaseTest{
+//	WebDriver driver;
 
 	// testcase 4
 	@Test
 	public void ContactUs4() {
 		String mess = "Your message has been successfully sent to our team.";
 		
-		HomePage home = new HomePage(driver);
-		ContactUsPage contactUs = home.clickContactUs();
-		contactUs.insertData();
-		String getMess = contactUs.getMess();
+		HomePageModel home = new HomePageModel(webDriver);
+		ContactUsPageModel contactUsPageModel = home.clickContactUs();
+//		contactUs.insertData();
+		contactUsPageModel.inputdata();
+		String getMess = contactUsPageModel.getMess();
 
 		assertEquals(mess, getMess);
 	}
 
-	@BeforeMethod
-	public void beforeMethod() {
-		
-		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("http://automationpractice.com/index.php");
-
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	}
+//	@BeforeMethod
+//	public void beforeMethod() {
+//		System.setProperty("webdriver.chrome.driver", ".//webdriver//chromedriver.exe");
+//		webDriver = new ChromeDriver();
+//		webDriver.get("http://automationpractice.com/index.php");
+//
+//	}
+//
+//	@AfterMethod
+//	public void afterMethod() {
+//	}
 }
